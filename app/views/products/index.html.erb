@@ -1,0 +1,24 @@
+<div class="container">
+<h1>Products</h1>
+<div class="text-right"><%= link_to "Nuevo producto", new_product_path, class: "btn btn-primary rounded-0" %></div>
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Categorias</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+    <tr>
+      <th scope="row"><%= product.name %></th>
+      <td><%= product.price %></td>
+      <td><%= product.categories.pluck(:name).join(",")%></td>
+      <td><%= link_to "Editar", edit_product_path(product), class: "btn btn-link" %></td>
+      <td><%= link_to "Eliminar", product, class: "btn btn-link text-danger", method: :delete, data: { confirm: "¿Estás seguro de eliminar este producto?" } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
