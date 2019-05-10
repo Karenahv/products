@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-  end 
+  end
 
   def new
     @product = Product.new
@@ -17,7 +17,6 @@ class ProductsController < ApplicationController
 
 def create
     @product = Product.new(product_params)
-    byebug
       if @product.save
           redirect_to @product
         else
